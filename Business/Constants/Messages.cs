@@ -1,6 +1,7 @@
 ﻿using Entities.Concrete;
 using System;
 using System.Collections.Generic;
+using System.Runtime.Serialization;
 using System.Text;
 
 namespace Business.Constants
@@ -14,5 +15,6 @@ namespace Business.Constants
         public static string ProductOfCountCategoryError = "Category count limit reached.";
         public static string ProductNameAlreadyExists = "This name is already used for another.";
         public static string CategoryLimitExceded = "Category limit exceded.";
+        public static string AuthorizationDenied = "You don't have authorization.";
     }
 }
