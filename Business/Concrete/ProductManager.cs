@@ -70,23 +70,12 @@ namespace Business.Concrete
 
         public IDataResult<List<ProductDetailDto>> GetProductDetailDtos()
         {
-            if (DateTime.Now.Hour == 17)
-            {
-                return new ErrorDataResult<List<ProductDetailDto>>(Messages.MaintenanceTime);
-            }
             return new SuccessDataResult<List<ProductDetailDto>>(_productDal.GetProductDetailDtos());
         }
 
         public IResult Update(Product product)
         {
-            var result = _productDal.GetAll(c => c.CategoryId == product.CategoryId).Count;
-            if (result > 10)
-            {
-                return new ErrorResult(Messages.ProductOfCountCategoryError);
-            }
-
             _productDal.Update(product);
-
             return new SuccessResult();
         }
 
